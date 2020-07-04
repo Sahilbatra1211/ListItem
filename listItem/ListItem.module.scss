@@ -1,0 +1,9 @@
+.itemList{
+    background-color:red;
+    height:30px;
+    width:30px;
+
+    & :focus{
+        color:yellow;
+    }
+}
