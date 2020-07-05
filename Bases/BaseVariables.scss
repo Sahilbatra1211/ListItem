@@ -1,0 +1,36 @@
+$kai-color-blue: #2B88D8;
+$kai-color-white: #FFFFFF;
+$kai-color-red: #FF0000;
+
+// default theme
+$primary-background-color: $kai-color-white;
+$primary-borderFocus-Color: $kai-color-blue;
+$primary-borderNonFocus-Color: $kai-color-white;
+
+$border-widths: (1px, 2px);
+$border-radii: (6px, 8px);
+$base-heights: (56px, 88px, 130px);
+$base-widths: (236px, 108px, 224px);
+
+$base-border-radius: nth($border-radii, 1);
+$base-border-width: nth($border-widths, 2);
+
+$base-width-listItem: nth($base-widths, 1);
+$base-width-gridItem: nth($base-widths, 2);
+$base-width-medium: nth($base-widths, 3);
+
+$base-height-listItem: nth($base-heights, 1);
+$base-height-gridItem: nth($base-heights, 2);
+$base-height-medium: nth($base-heights, 3);
+
+$base-border-style: solid;
+
+//box-shadow Styling
+$box-shadow-hor: 0px;
+$box-shadow-ver: 0px;
+$box-shadow-blur: 8px;
+$box-shadow-rRatio: 0;
+$box-shadow-gRatio: 0;
+$box-shadow-bRatio: 0;
+$box-shadow-opacity: 0.1;
+

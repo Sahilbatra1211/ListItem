@@ -1,0 +1,39 @@
+@import "./BaseVariables.scss";
+
+body{
+	margin: 0;
+	background-color: #CCCCCC;
+}
+.base{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	border-radius: $base-border-radius;
+	box-shadow: $box-shadow-hor $box-shadow-ver $box-shadow-blur rgba($box-shadow-rRatio, $box-shadow-gRatio, $box-shadow-bRatio, $box-shadow-opacity);
+	&.defaultTheme{
+		background-color: $primary-background-color;
+		border: $base-border-width $base-border-style $primary-borderNonFocus-Color;
+	}
+}
+
+.base{
+	outline: none;
+	&.defaultTheme:focus{
+		border: $base-border-width $base-border-style $primary-borderFocus-Color;
+	}
+}
+
+.base.baseIsListItem{
+	height: $base-height-listItem;
+	width: $base-width-listItem;
+}
+
+.base.baseIsGridItem{
+	height: $base-height-gridItem;
+	width: $base-width-gridItem;
+}
+
+.base.baseIsMedium{
+	height: $base-height-medium;
+	width: $base-width-medium;
+}

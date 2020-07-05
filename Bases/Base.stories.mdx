@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Base } from './Base.tsx';
+import { withKnobs, number, boolean } from '@storybook/addon-knobs';
+
+<Meta title="MDX/Bases" component={Base} />
+
+# Base
+
+Base will serve as a generic container.
+
+## Usage
+
+Bases are used as containers and are available as 3 different types. List, Grid and medium size containers.
+ListItem - 0
+GridItem - 1
+Medium Size - 2
+
+<Preview withToolbar>
+	<Story
+        name="Base"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=478%3A978',
+            },
+        }}>
+        	<Base
+                baseType={number('size', 2)}
+				isAriaHidden={boolean('isAriaHidden', false)}
+            />
+    </Story>
+</Preview>
