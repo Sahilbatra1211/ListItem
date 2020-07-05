@@ -1,16 +1,12 @@
 .itemList {
-    margin-top: 5px;
-    background-color: red;
+    margin-top: 1px;
+    background-color: white;
     border-radius: 6px;
     color: black;
-    //display: flex;
-    //flex-direction: row;
-    height: 48px;
+    //height: 48px;
     display: flex;
     flex-direction: row;
-    //align-items: center;
     overflow: hidden;
-    outline: none;
 
     & :focus {
         color: yellow;
@@ -20,14 +16,29 @@
 
 }
 
+.itemListIcon {
+    height: 40px;
+}
+
+.itemListPersonsMedium {
+    height: 62px;
+}
+
+.itemListPersonaSmall {
+    height: 48px;
+}
+
+.leftIcon {
+    width: 32px;
+}
+
 .leftContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 3px;
-    padding-right: 3px;
-    width: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .textContainer {
@@ -38,6 +49,7 @@
     height: 100%;
     width: 100%;
     align-items: flex-start;
+    //margin-left: 8px;
 }
 
 .primaryText {
@@ -46,6 +58,13 @@
     font-weight: bold;
     font-size: 15px;
 
+}
+
+.iconPrimaryText {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
 }
 
 .secondaryText {
@@ -61,5 +80,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    //width: 100%;
+    margin-right: 13px;
 }

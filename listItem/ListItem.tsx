@@ -47,9 +47,13 @@ const ListItem = React.memo<ListItemProps>((props) => {
     } else if (props.leftPersona) {
         LeftContent = (
             <>
-                <Persona personaImageSources={props.leftPersonaSrc} personaSize={1}></Persona>
+                <Persona
+                    personaImageSources={props.leftPersonaSrc}
+                    personaSize={props.listSize === 'Medium' ? 2 : 1}></Persona>
             </>
         );
+    } else {
+        LeftContent = <></>;
     }
 
     let RightContent;
@@ -62,10 +66,38 @@ const ListItem = React.memo<ListItemProps>((props) => {
     }
 
     return (
-        <div tabIndex={0} ref={itemRef} className={styles.itemList} onClick={onClick}>
-            <div className={styles.leftContent}>{LeftContent}</div>
+        <div
+            tabIndex={0}
+            ref={itemRef}
+            className={`${styles.itemList} ${props.leftIcon ? `${styles.itemListIcon}` : ''} ${
+                props.leftPersona
+                    ? `${
+                          props.listSize === 'Medium'
+                              ? `${styles.itemListPersonsMedium}`
+                              : `${styles.itemListPersonaSmall}`
+                      }`
+                    : ''
+            }`}
+            onClick={onClick}>
+            <div
+                className={`${styles.leftContent} ${props.leftIcon ? `${styles.leftIcon}` : ''} ${
+                    props.leftPersona
+                        ? `${
+                              props.listSize === 'Medium'
+                                  ? `${styles.leftPersonsMedium}`
+                                  : `${styles.leftPersonaSmall}`
+                          }`
+                        : ''
+                }`}>
+                {LeftContent}
+            </div>
             <div className={styles.textContainer}>
-                <div className={styles.primaryText}>{props.primaryText}</div>
+                <div
+                    className={`${
+                        props.leftIcon ? `${styles.iconPrimaryText}` : `${styles.primaryText}`
+                    }`}>
+                    {props.primaryText}
+                </div>
                 <div className={styles.secondaryText}>{props.secondaryText}</div>
             </div>
             <div className={styles.rightContent}>{RightContent}</div>

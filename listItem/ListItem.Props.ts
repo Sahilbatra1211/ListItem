@@ -12,6 +12,7 @@ export interface ListItemProps {
     primaryText?: string;
     secondaryText?: string;
     rightIconName?: string;
+    listSize?: 'Small' | 'Medium';
     /**callback for onclick */
     onClick?: (...args: any[]) => any;
 }

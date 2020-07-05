@@ -3,23 +3,34 @@ import { ListView } from './ListView';
 import ListItem from '../listItem/ListItem';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import ListItemThumbnail from '../listItemThumbnail/ListItemThumbnail';
+import { Client } from '../Personas/assets';
 
 <Meta title="Component Lib| ListView" conponent={ListView} />
 
 <Preview>
     <Story name="List View">
         <ListView>
-            <ListItem leftPersona={true}></ListItem>
+            <ListItem
+                leftPersona={true}
+                primaryText="Topic Name"
+                rightIconName="radiobutton"></ListItem>
             <ListItem
                 leftIcon={true}
-                leftIconName="search"
-                primaryText="Primary Text"
+                leftIconName="share"
+                primaryText="Share"
                 rightIconName="arrowbutton"></ListItem>
             <ListItem
                 leftPersona={true}
-                primaryText="Persona Text"
-                secondaryText="Secondary"
-                rightIconName="checkbox"></ListItem>
+                leftPersonaSrc={[Client]}
+                primaryText="First Name"
+                secondaryText="Email or Phone"
+                rightIconName="checkbox"
+                listSize="Medium"></ListItem>
+            <ListItem
+                primaryText="Main Title"
+                secondaryText="Label"
+                rightIconName="arrowbutton"></ListItem>
         </ListView>
     </Story>
 </Preview>
