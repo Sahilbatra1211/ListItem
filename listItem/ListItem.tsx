@@ -1,53 +1,78 @@
 import React, { useEffect, useState } from 'react';
-import { ListItemProps } from './ListItem.Props';
 import styles from './ListItem.module.scss';
+import { CheckBox } from '../checkbox/components/CheckBox';
+import { Icon } from '../icon/components/Icon';
+import { ListItemProps } from './ListItem.Props';
+import { Persona } from '../Personas/components/Persona';
+import { RadioButton } from '../radioButton/components/RadioButton';
+//import { Base } from '../Bases/Base';
 
-const ListItem = React.memo<ListItemProps>(
-    props => {
+const ListItem = React.memo<ListItemProps>((props) => {
+    const [isActive, setIsActive] = useState(false);
 
-        const [isActive, setIsActive] = useState(false);
+    const { fowardRef: forwardRef, onClick } = props;
+    const itemRef = forwardRef;
 
-        const { fowardRef, onClick } = props;
-        const itemRef = fowardRef;
+    useEffect(() => {
+        console.log('in listitem useEffect');
+        console.log(forwardRef);
+        const component = forwardRef.current;
 
-        useEffect(
-            () => {
-                console.log('in listitem useeffect');
-                console.log(fowardRef);
-                const component = fowardRef.current;
+        const onFocus = () => {
+            setIsActive(true);
+            console.log('focus');
+        };
 
-                const onFocus = () => {
-                    setIsActive(true);
-                    console.log('focus');
-                }
+        const onBlur = () => {
+            setIsActive(false);
+            console.log('blur');
+        };
 
-                const onBlur = () => {
-                    setIsActive(false);
-                    console.log('blur');
-                }
+        component.addEventListener('focus', onFocus);
+        component.addEventListener('blur', onBlur);
 
+        return () => {
+            component.removeEventListener('focus', onFocus);
+            component.removeEventListener('blur', onBlur);
+        };
+    }, [forwardRef]);
 
-                component.addEventListener('focus', onFocus);
-                component.addEventListener('blur', onBlur);
-
-                return () => {
-                    component.removeEventListener('focus', onFocus);
-                    component.removeEventListener('blur', onBlur);
-                };
-            }, [fowardRef]
+    let LeftContent;
+    if (props.leftIcon) {
+        LeftContent = (
+            <>
+                <Icon iconName={props.leftIconName}></Icon>
+            </>
         );
-
-        return (
-            <div tabIndex={0} ref={itemRef} className={styles.itemList} onClick={onClick}>
-                sdgdg fhggfhhiiii
-            </div>
+    } else if (props.leftPersona) {
+        LeftContent = (
+            <>
+                <Persona personaImageSources={props.leftPersonaSrc} personaSize={1}></Persona>
+            </>
         );
     }
-);
+
+    let RightContent;
+    if (props.rightIconName === 'radiobutton') {
+        RightContent = <RadioButton></RadioButton>;
+    } else if (props.rightIconName === 'checkbox') {
+        RightContent = <CheckBox onChange={() => {}}></CheckBox>;
+    } else if (props.rightIconName === 'arrowbutton') {
+        RightContent = <Icon iconName="chevron"></Icon>;
+    }
+
+    return (
+        <div tabIndex={0} ref={itemRef} className={styles.itemList} onClick={onClick}>
+            <div className={styles.leftContent}>{LeftContent}</div>
+            <div className={styles.textContainer}>
+                <div className={styles.primaryText}>{props.primaryText}</div>
+                <div className={styles.secondaryText}>{props.secondaryText}</div>
+            </div>
+            <div className={styles.rightContent}>{RightContent}</div>
+        </div>
+    );
+});
 
 export default React.forwardRef((props: ListItemProps, ref) => (
-    <ListItem
-        fowardRef={ref}
-        {...props}
-    />
+    <ListItem fowardRef={ref} {...props} />
 ));

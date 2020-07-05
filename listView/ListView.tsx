@@ -1,31 +1,27 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { ListViewProps } from './ListView.Props'
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-
+import { ListViewProps } from './ListView.Props';
 
 export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
-
-
     const [activeItem, setActiveItem] = useState(0);
     const itemRefs: any[] = [];
 
     const setFocusToIndex = useCallback(
-        index => {
+        (index) => {
             if (itemRefs[index]) {
                 const elem: any | null = ReactDOM.findDOMNode(itemRefs[index].current);
                 if (elem) {
                     setActiveItem(index);
                     elem.focus();
                 }
-
             }
         },
         [itemRefs]
     );
 
     const handleKeyDown = useCallback(
-        e => {
-            let index = activeItem
+        (e) => {
+            let index = activeItem;
             //   if (!isActive) {
             //     return;
             //   }
@@ -50,34 +46,32 @@ export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
         [activeItem, itemRefs]
     );
 
+    useEffect(() => {
+        //@ts-ignore
+        console.log('xyz');
+        console.log(itemRefs[0]);
 
-
-    useEffect(
-        () => {
-            //@ts-ignore
-            console.log('xyz');
-            console.log(itemRefs[0]);
-
-
-            document.addEventListener('keydown', handleKeyDown);
-            return () => document.removeEventListener('keydown', handleKeyDown);
-        },
-        [handleKeyDown, itemRefs]
-    );
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [handleKeyDown, itemRefs]);
 
     const renderChildren = () => {
         let index = -1;
-        return React.Children.map(props.children, child => {
+        return React.Children.map(props.children, (child) => {
             console.log('litview rendered');
             index++;
             const newRef = React.createRef();
             itemRefs[index] = newRef;
 
             return React.cloneElement(child, {
-                ref: newRef
+                ref: newRef,
             });
         });
     };
-    return <div>{console.log('rendered')}{renderChildren()}</div>;
+    return (
+        <div>
+            {console.log('rendered')}
+            {renderChildren()}
+        </div>
+    );
 };
-

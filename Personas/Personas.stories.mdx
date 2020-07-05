@@ -1,0 +1,123 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Persona } from './components/Persona.tsx';
+import { withKnobs, text, boolean, number, array, select } from '@storybook/addon-knobs';
+import {Client, Senior, Student, Bangalore, Family, Homemaker, Microsoft, Outlook, Security, Sportsman, Covid, unknownPersona, verifiedBadge} from './assets';
+
+
+<Meta title="MDX/Persona" component={Persona} />
+
+# Persona
+
+Persona component will serve as generic Persona for KaiOS.
+
+## Usage
+
+Persona can be used to represent various topics, entities and identities. Also provides grouped Personas.
+
+## Props
+<Props of={Persona}/>
+
+## Examples
+
+<Preview withToolbar>
+    <Story
+        name="Persona Initials"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaInitials={text('personaInitials', '')}
+                personaImageAlt={text('personaImageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+                isVerified={boolean('isVerified',false)}
+                isMultipleRecipientPersona={boolean('isMultipleRecipientPersona',false)}
+             />
+    </Story>
+	<Story
+        name="Persona - Single Recipient"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaImageAlt={text('personaImageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+				isVerified={boolean('isVerified',false)}
+				personaImageSources={array('personaImageSources', [Senior])}
+            />
+    </Story>
+	<Story
+        name="Persona - Multiple Recipients"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaImageAlt={text('personaImageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+                isMultipleRecipientPersona={boolean('isMultipleRecipientPersona',true)}
+				personaImageSources={array('personaImageSources', [Senior])}
+            />
+    </Story>
+	<Story
+        name="Persona - Group of 2"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaImageAlt={text('imageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+				personaImageSources={array('personaImageSources', [Student, Senior])}
+             />
+    </Story>
+	<Story
+        name="Persona - Group of 3"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaImageAlt={text('imageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+				personaImageSources={array('personaImageSources', [Homemaker, Student, Senior])}
+             />
+    </Story>
+    <Story
+        name="Persona - Group of 4"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=383%3A233',
+            },
+        }}>
+        	<Persona
+                personaImageAlt={text('imageAlt', 'persona')}
+                primaryText={text('primaryText', 'Ashutosh Sharma')}
+                personaSize={number('personaSize', 2)}
+				personaImageSources={array('personaImageSources', [Homemaker, Sportsman, Senior, Student])}
+             />
+    </Story>
+</Preview>

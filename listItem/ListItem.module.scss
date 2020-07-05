@@ -1,9 +1,65 @@
-.itemList{
-    background-color:red;
-    height:30px;
-    width:30px;
+.itemList {
+    margin-top: 5px;
+    background-color: red;
+    border-radius: 6px;
+    color: black;
+    //display: flex;
+    //flex-direction: row;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    //align-items: center;
+    overflow: hidden;
+    outline: none;
 
-    & :focus{
-        color:yellow;
+    & :focus {
+        color: yellow;
     }
+
+    left:0%;
+
+}
+
+.leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 40px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.primaryText {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.secondaryText {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //width: 100%;
 }

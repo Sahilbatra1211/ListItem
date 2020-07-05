@@ -1,0 +1,133 @@
+import { Meta, Story, Preview,Props} from "@storybook/addon-docs/blocks";
+import {Icon} from './Icon'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+
+<Meta title="Component Lib| Icons" conponent={Icon}  />
+
+# Icons
+___
+`Icons` will serve as generic icons for kaios app.
+
+## Usage
+> List of props that can be passed in < Icon > component-
+
+<Props of={Icon}/>
+
+<br/>
+
+
+
+<Preview>
+    <Story name="chevron"
+        parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=255%3A48'
+            }
+        }}
+    >
+            <Icon iconName='chevron'
+            width={number('width',8)}
+            height={number('height',16)}
+            color={text('color','black')}/>
+     </Story>
+    <Story name="share"
+    parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=513%3A274'
+            }
+        }}>
+            <Icon iconName='share'/>
+    </Story>
+    <Story name="bookmark"
+    parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=513%3A276'
+            }
+        }} >
+            <Icon iconName='bookmark'/>
+    </Story>
+    <Story name="bookmarked" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=513%3A278'
+            }
+        }}>
+            <Icon iconName='bookmarked' />
+    </Story>
+    <Story name="block" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=513%3A280'
+            }
+        }}>
+            <Icon iconName='block' color='#D92C2C'/>
+    </Story>
+    <Story name="blocked" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=513%3A282'
+            }
+        }}>
+            <Icon iconName='blocked' color='#D92C2C'/>
+    </Story>
+    <Story name="settings" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=525%3A143'
+            }
+        }}>
+            <Icon iconName='settings'/>
+    </Story>
+    <Story name="search" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=525%3A172'
+            }
+        }}>
+            <Icon iconName='search' />
+    </Story>
+    <Story name="alarm" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=720%3A13'
+            }
+        }}>
+            <Icon iconName='alarm'/>
+    </Story>
+    <Story name="add contact" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=720%3A15'
+            }
+        }}>
+            <Icon iconName='add contact' />
+    </Story>
+    <Story name="add file" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=720%3A19'
+            }
+        }}>
+            <Icon iconName='add file' />
+    </Story>
+</Preview>
+
+#### Name of Icons
+___
+
+1. chevron
+1. share
+1. bookmark
+1. bookmarked
+1. block
+1. blocked
+1. settings
+1. search
+1. alarm
+1. add contact
+1. add file

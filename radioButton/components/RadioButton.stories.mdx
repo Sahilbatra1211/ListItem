@@ -1,0 +1,36 @@
+import { Meta, Story, Preview,Props} from "@storybook/addon-docs/blocks";
+import {RadioButton} from './RadioButton'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+
+<Meta title="Component Lib| Radio Button" conponent={RadioButton}  />
+
+# Radio Button
+___
+`Radio` will serve as generic radio for kaios app.
+
+## Usage
+> Props that can be passed are:
+
+<Props of={RadioButton}/>
+
+Radio button has three states:
+1. Unchecked
+2. Checked
+3. Disabled
+
+<Preview>
+    <Story name="Radio Button Unchecked">
+       <RadioButton name="check1" value="1"  checked={boolean('checked',false)} disabled={boolean('disabled',false)} onChange={action('onchange called')} />Unchecked
+        Unchecked
+    </Story>
+    <Story name="Radio Button Checked">
+       <RadioButton name="check1" value="1"  checked={true} disabled={false} onChange={action('onchange called')} />
+       Checked
+    </Story>
+    <Story name="Radio Button Disabled">
+       <RadioButton name="check1" value="1"  checked={false} disabled={true} onChange={action('onchange called')} />
+       disabled
+    </Story>
+</Preview>

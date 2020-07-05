@@ -1,0 +1,40 @@
+import { Meta, Story, Preview,Props} from "@storybook/addon-docs/blocks";
+import {CheckBox} from './CheckBox'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+
+<Meta title="Component Lib| Checkbox" conponent={CheckBox}  />
+
+# Check Box
+___
+`Checkbox` will serve as generic checkbox for kaios app.
+
+## Usage
+
+> Props that can be passed are:
+
+<Props of={CheckBox}/>
+
+Checkbox can have four states-
+1. Unchecked
+1. Checked
+1. Uncheck Disabled
+1. Checked Disabled
+
+
+<Preview>
+    <Story name="Unchecked">
+       <CheckBox name="check1" value="1"  checked={boolean('checked',false)} disabled={boolean('disabled',false)}
+       onChange={action('onchange called')} />
+    </Story>
+    <Story name="Checked">
+       <CheckBox name="check2" value="1"  checked={true} disabled={boolean('disabled',false)} onChange={action('onchange called')} />
+    </Story>
+    <Story name="Disabled">
+       <CheckBox name="check3" value="1"  checked={false} disabled={true} onChange={action('onchange called')} />
+    </Story>
+    <Story name="Checked Disabled">
+       <CheckBox name="check4" value="1"  checked={true} disabled={true} onChange={action('onchange called')} />
+    </Story>
+</Preview>

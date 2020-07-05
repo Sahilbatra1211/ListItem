@@ -6,7 +6,7 @@ export interface ListItemProps {
     /**if left persona is there */
     leftPersona?: boolean;
     /**if left person is passed true then pass the src */
-    leftPersonaSrc?: boolean;
+    leftPersonaSrc?: Array<string>;
     /** if left icon is true pass the icon name by default chevron */
     leftIconName?: string;
     primaryText?: string;
