@@ -13,6 +13,6 @@ export interface ListItemProps {
     secondaryText?: string;
     rightIconName?: string;
     listSize?: 'Small' | 'Medium';
-    /**callback for onclick */
-    onClick?: (...args: any[]) => any;
+    /**callback for Enter*/
+    onEnter?: (...args: any[]) => any;
 }

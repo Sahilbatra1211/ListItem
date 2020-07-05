@@ -1,6 +1,6 @@
 export interface IconProps {
     /** Name of the icon */
-    iconName?: string;
+    iconName: string;
     /** Width of the icon */
     width?: number;
     /** Height of the icon */
@@ -10,7 +10,7 @@ export interface IconProps {
 }
 
 export interface IconSvgsProps {
-    iconName?: string;
+    iconName: string;
     width?: number;
     height?: number;
     color?: string;

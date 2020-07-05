@@ -1,4 +1,4 @@
-export interface CheckBoxProps {
+export interface CheckboxProps {
     /**Name of check box */
     name?: string;
     /**Value of check box */
@@ -9,4 +9,6 @@ export interface CheckBoxProps {
     checked?: boolean;
     /**To make check box disabled */
     disabled?: boolean;
+    /**color white|blue */
+    color?: string;
 }
