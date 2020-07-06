@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ListItemThumbnail.module.scss';
-import { CheckBox } from '../checkbox/components/CheckBox';
+import { Checkbox } from '../checkbox/components/Checkbox';
 import { Icon } from '../icon/components/Icon';
 import { ListItemThumbnailProps } from './ListItemThumbnail.Props';
 import { NewsThumbnail } from '../kaios-newsThumbnail/components/NewsThumbnail';

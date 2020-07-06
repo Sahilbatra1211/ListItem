@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './ListItemCheckbox.module.scss';
-import { CheckBox } from '../checkbox/components/CheckBox';
+import { Checkbox } from '../checkbox/components/Checkbox';
 import { Icon } from '../icon/components/Icon';
 import { ListItemCheckboxProps } from './ListItemCheckbox.Props';
 import { Persona } from '../Personas/components/Persona';
@@ -57,7 +57,7 @@ const ListItemCheckBox = React.memo<ListItemCheckboxProps>((props) => {
         LeftContent = <></>;
     }
 
-    const RightContent = <CheckBox onChange={() => { }}></CheckBox>;
+    const RightContent = <Checkbox onChange={() => { }}></Checkbox>;
 
     return (
         <div

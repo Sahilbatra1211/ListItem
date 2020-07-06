@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './CheckBox.module.scss';
-import { CheckBoxProps } from '../schema/CheckBox.Props';
+import styles from './Checkbox.module.scss';
+import { CheckBoxProps } from '../schema/Checkbox.Props';
 
-export const CheckBox: React.FC<CheckBoxProps> = (props: CheckBoxProps) => {
+export const Checkbox: React.FC<CheckBoxProps> = (props: CheckBoxProps) => {
     const { name, disabled, checked, onChange, value, color } = props;
 
     const colorCls = color === 'white' ? styles.checkboxWhite : styles.checkboxBlue;
@@ -21,7 +21,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props: CheckBoxProps) => {
     );
 };
 
-CheckBox.defaultProps = {
+Checkbox.defaultProps = {
     disabled: false,
     checked: false,
     onChange: () => { },
