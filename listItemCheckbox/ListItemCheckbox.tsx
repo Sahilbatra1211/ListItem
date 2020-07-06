@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './ListItemCheckbox.module.scss';
-import { Checkbox } from '../checkbox/components/Checkbox';
+import { CheckBox } from '../checkbox/components/CheckBox';
+import { GetLeftContent } from './utils/GetLeftContent';
 import { Icon } from '../icon/components/Icon';
 import { ListItemCheckboxProps } from './ListItemCheckbox.Props';
 import { Persona } from '../Personas/components/Persona';
@@ -38,26 +39,28 @@ const ListItemCheckBox = React.memo<ListItemCheckboxProps>((props) => {
         };
     }, [forwardRef]);
 
-    let LeftContent;
-    if (props.leftIcon) {
-        LeftContent = (
-            <>
-                <Icon iconName={props.leftIconName}></Icon>
-            </>
-        );
-    } else if (props.leftPersona) {
-        LeftContent = (
-            <>
-                <Persona
-                    personaImageSources={props.leftPersonaSrc}
-                    personaSize={props.listSize === 'Medium' ? 2 : 1}></Persona>
-            </>
-        );
-    } else {
-        LeftContent = <></>;
-    }
+    let LeftContent = (
+        <GetLeftContent {...props}></GetLeftContent>
+    );
+    // if (props.leftIcon) {
+    //     LeftContent = (
+    //         <>
+    //             <Icon iconName={props.leftIconName}></Icon>
+    //         </>
+    //     );
+    // } else if (props.leftPersona) {
+    //     LeftContent = (
+    //         <>
+    //             <Persona
+    //                 personaImageSources={props.leftPersonaSrc}
+    //                 personaSize={props.listSize === 'Medium' ? 2 : 1}></Persona>
+    //         </>
+    //     );
+    // } else {
+    //     LeftContent = <></>;
+    // }
 
-    const RightContent = <Checkbox onChange={() => { }}></Checkbox>;
+    const RightContent = <CheckBox onChange={() => { }}></CheckBox>;
 
     return (
         <div

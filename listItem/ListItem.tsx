@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './ListItem.module.scss';
-import { Checkbox } from '../checkbox/components/Checkbox';
+import { CheckBox } from '../checkbox/components/CheckBox';
 import { Icon } from '../icon/components/Icon';
 import { ListItemProps } from './ListItem.Props';
 import { Persona } from '../Personas/components/Persona';
@@ -61,7 +61,7 @@ const ListItem = React.memo<ListItemProps>((props) => {
     if (props.rightIconName === 'radiobutton') {
         RightContent = <RadioButton></RadioButton>;
     } else if (props.rightIconName === 'Checkbox') {
-        RightContent = <Checkbox onChange={() => { }}></Checkbox>;
+        RightContent = <CheckBox onChange={() => { }}></CheckBox>;
     } else if (props.rightIconName === 'arrowbutton') {
         RightContent = <Icon iconName="chevron"></Icon>;
     }

@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './ListItemArrowButton.module.scss';
+import { GetLeftContent } from './utils/GetLeftContent';
 import { Icon } from '../icon/components/Icon';
 import { ListItemArrowButtonProps } from './ListItemArrowButton.Props';
 import { Persona } from '../Personas/components/Persona';
 import { userContext } from '../tabBarContext/TabBarContext';
+
 //import { Base } from '../Bases/Base';
 
 const ListItemArrowButton = React.memo<ListItemArrowButtonProps>((props) => {
@@ -35,24 +37,9 @@ const ListItemArrowButton = React.memo<ListItemArrowButtonProps>((props) => {
             component.removeEventListener('blur', onBlur);
         };
     }, [forwardRef]);
-    let LeftContent;
-    if (props.leftIcon) {
-        LeftContent = (
-            <>
-                <Icon iconName={props.leftIconName}></Icon>
-            </>
-        );
-    } else if (props.leftPersona) {
-        LeftContent = (
-            <>
-                <Persona
-                    personaImageSources={props.leftPersonaSrc}
-                    personaSize={props.listSize === 'Medium' ? 2 : 1}></Persona>
-            </>
-        );
-    } else {
-        LeftContent = <></>;
-    }
+    let LeftContent = (
+        <GetLeftContent {...props}></GetLeftContent>
+    );
 
     const RightContent = <Icon iconName="chevron"></Icon>;
 
