@@ -9,4 +9,6 @@ export interface CheckBoxProps {
     checked?: boolean;
     /**To make check box disabled */
     disabled?: boolean;
+    /**color white|blue */
+    color?: string;
 }

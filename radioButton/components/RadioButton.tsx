@@ -1,13 +1,13 @@
 import React from 'react';
-import { RadioButtonProps } from '../schema/RadioButton.Props';
 import styles from './RadioButton.module.scss';
+import { RadioButtonProps } from '../schema/RadioButton.Props';
 
 export const RadioButton: React.FC<RadioButtonProps> = (props: RadioButtonProps) => {
     let { name, disabled, checked, onChange, value } = props;
     const border = checked ? '1.5px solid #0078D4' : '';
 
     const check = () => {
-        if (checked == true && disabled == true) checked = false;
+        if (checked === true && disabled === true) checked = false;
     };
 
     return (
@@ -28,5 +28,5 @@ export const RadioButton: React.FC<RadioButtonProps> = (props: RadioButtonProps)
 RadioButton.defaultProps = {
     disabled: false,
     checked: false,
-    onChange: () => {},
+    onChange: () => { },
 };

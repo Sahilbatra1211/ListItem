@@ -15,9 +15,9 @@ export const IconSvgs: React.FC<IconSvgsProps> = (props: IconSvgsProps) => {
                 <path
                     d="M1 1L7 8L1 15"
                     stroke={color}
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                 />
             </svg>
         );

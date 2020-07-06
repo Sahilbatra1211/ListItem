@@ -22,9 +22,6 @@ export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
     const handleKeyDown = useCallback(
         (e) => {
             let index = activeItem;
-            //   if (!isActive) {
-            //     return;
-            //   }
 
             switch (e.key) {
                 case 'ArrowUp':
@@ -47,9 +44,10 @@ export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
     );
 
     useEffect(() => {
-        //@ts-ignore
-        console.log('xyz');
-        console.log(itemRefs[0]);
+        itemRefs[0].current.focus();
+    }, [])
+
+    useEffect(() => {
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
@@ -58,7 +56,6 @@ export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
     const renderChildren = () => {
         let index = -1;
         return React.Children.map(props.children, (child) => {
-            console.log('litview rendered');
             index++;
             const newRef = React.createRef();
             itemRefs[index] = newRef;
@@ -70,7 +67,6 @@ export const ListView: React.FC<ListViewProps> = (props: ListViewProps) => {
     };
     return (
         <div>
-            {console.log('rendered')}
             {renderChildren()}
         </div>
     );

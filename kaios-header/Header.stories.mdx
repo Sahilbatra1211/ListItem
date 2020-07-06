@@ -1,0 +1,49 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Header } from './components/Header.tsx';
+import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+
+<Meta title="MDX/kaiOSHeader" component={Header} />
+
+# Header
+
+`Header` will serve as generic header for kaios app.
+
+## Usage
+
+> List of props that can be passed in `Header` component are-
+
+<Props of={Header} />
+
+Icon is displayed if valid icon source is passed.
+
+<Preview withToolbar>
+    <Story
+        name="Header White Theme"
+        parameters={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=525%3A284',
+            },
+        }}>
+        <Header
+            text={text('text', 'Heading')}
+            theme={select('theme', ['white', 'grey', 'dark'])}
+            base={select('base', ['normal', 'large'])}
+        />
+    </Story>
+    <Story name="Header Grey Theme">
+        <Header text="Heading" theme="grey" base="normal" />
+    </Story>
+    <Story name="Header Dark Theme">
+        <Header text="Heading" theme="dark" base="normal" />
+    </Story>
+    <Story name="Header With Icon">
+        <Header text="Heading" theme="white" base="normal" />
+    </Story>
+    <Story name="Header With Large Base">
+        <Header text="Heading" theme="white" base="large" />
+    </Story>
+</Preview>
+
+> Figma Link <https://www.figma.com/file/gp4mh7pbvuzpfmqh0uscfu/outlook-jio-library?node-id=525%3a284>

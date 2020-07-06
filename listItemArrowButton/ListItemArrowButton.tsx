@@ -1,18 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from './ListItem.module.scss';
-import { CheckBox } from '../checkbox/components/CheckBox';
+import styles from './ListItemArrowButton.module.scss';
 import { Icon } from '../icon/components/Icon';
-import { ListItemProps } from './ListItem.Props';
+import { ListItemArrowButtonProps } from './ListItemArrowButton.Props';
 import { Persona } from '../Personas/components/Persona';
-import { RadioButton } from '../radioButton/components/RadioButton';
 import { userContext } from '../tabBarContext/TabBarContext';
 //import { Base } from '../Bases/Base';
 
-const ListItem = React.memo<ListItemProps>((props) => {
+const ListItemArrowButton = React.memo<ListItemArrowButtonProps>((props) => {
     const [isActive, setIsActive] = useState(false);
     const tabBarContext = useContext(userContext);
 
-    const { fowardRef: forwardRef, onEnter } = props;
+    const { forwardRef: forwardRef, onEnter } = props;
     const itemRef = forwardRef;
 
     useEffect(() => {
@@ -37,7 +35,6 @@ const ListItem = React.memo<ListItemProps>((props) => {
             component.removeEventListener('blur', onBlur);
         };
     }, [forwardRef]);
-
     let LeftContent;
     if (props.leftIcon) {
         LeftContent = (
@@ -57,14 +54,7 @@ const ListItem = React.memo<ListItemProps>((props) => {
         LeftContent = <></>;
     }
 
-    let RightContent;
-    if (props.rightIconName === 'radiobutton') {
-        RightContent = <RadioButton></RadioButton>;
-    } else if (props.rightIconName === 'Checkbox') {
-        RightContent = <CheckBox onChange={() => { }}></CheckBox>;
-    } else if (props.rightIconName === 'arrowbutton') {
-        RightContent = <Icon iconName="chevron"></Icon>;
-    }
+    const RightContent = <Icon iconName="chevron"></Icon>;
 
     return (
         <div
@@ -76,8 +66,8 @@ const ListItem = React.memo<ListItemProps>((props) => {
                     : `${styles.itemListPersonaSmall}`
                 }`
                 : ''
-                }`}
-            onClick={onEnter}>
+                } ${isActive ? `${styles.active}` : ''}`}
+            onClick={() => { }}>
             <div
                 className={`${styles.leftContent} ${props.leftIcon ? `${styles.leftIcon}` : ''} ${props.leftPersona
                     ? `${props.listSize === 'Medium'
@@ -101,6 +91,6 @@ const ListItem = React.memo<ListItemProps>((props) => {
     );
 });
 
-export default React.forwardRef((props: ListItemProps, ref) => (
-    <ListItem fowardRef={ref} {...props} />
+export default React.forwardRef((props: ListItemArrowButtonProps, ref) => (
+    <ListItemArrowButton forwardRef={ref} {...props} />
 ));

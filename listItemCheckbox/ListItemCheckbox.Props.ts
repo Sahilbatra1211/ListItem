@@ -1,6 +1,6 @@
-export interface ListItemProps {
-    /** foward ref to list view */
-    fowardRef?: any;
+export interface ListItemCheckboxProps {
+    /** forward ref to list view */
+    forwardRef?: any;
     /**If left icon is there*/
     leftIcon?: boolean;
     /**if left persona is there */
@@ -13,6 +13,7 @@ export interface ListItemProps {
     secondaryText?: string;
     rightIconName?: string;
     listSize?: 'Small' | 'Medium';
-    /**callback for Enter*/
+    /**callback for onclick */
+    onClick?: (...args: any[]) => any;
     onEnter?: (...args: any[]) => any;
 }

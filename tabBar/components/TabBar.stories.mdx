@@ -1,0 +1,57 @@
+import { Meta, Story, Preview,Props } from "@storybook/addon-docs/blocks";
+import {TabBar} from './TabBar'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+<Meta title="Component Lib| Tab Bar" component={TabBar} />
+
+# Tab Bar
+___
+`Tab Bar` will serve as generic tab bar for kaios app.
+
+## Usage
+> Props that can be passed are:
+
+<Props of={TabBar} />
+
+___
+
+#### Default background color and font color
+___
+<Preview>
+    <Story name="Tab Bar">
+        <TabBar centerText={text("Center Text","Enter")}
+        leftText={text("Left Text","Back")}
+        rightText={text("Right Text","Options")}
+        fontColor={text('Font Color','')}
+        backgroundColor={text('Background color','')}
+        leftCallback={action('left softkey pressed')}
+        rightCallback={action('right softkey pressed')}
+        centerCallback={action('center softkey pressed')}
+        />
+    </Story>
+</Preview>
+
+#### White theme
+___
+<Preview>
+    <Story name="White Theme">
+        <TabBar centerText={text("Center Text","Enter")}
+        leftText={text("Left Text","Back")}
+        rightText={text("Right Text","Options")}
+        fontColor='black'
+        backgroundColor='white'/>
+    </Story>
+</Preview>
+
+#### Dark Theme
+___
+<Preview>
+    <Story name="Dark Theme">
+        <TabBar centerText={text("Center Text","Enter")}
+        leftText={text("Left Text","Back")}
+        rightText={text("Right Text","Options")}
+        fontColor='white'
+        backgroundColor=' #303030'/>
+    </Story>
+</Preview>

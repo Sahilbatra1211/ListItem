@@ -1,0 +1,38 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { NewsThumbnail } from './components/NewsThumbnail.tsx';
+import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+import { withDesign } from 'storybook-addon-designs';
+
+<Meta title="MDX/NewsThumbnail" component={NewsThumbnail} />
+
+# NewsThumbnail
+
+`NewsThumbnail` component will serve as thumbnail component for news digest module.
+
+## Usage
+
+> List of props that can be passed in `NewsThumbnail` component are-
+
+<Props of={NewsThumbnail} />
+
+<Preview>
+    <Story
+        name="NewsThumbnail Medium"
+        parameter={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=478%3A439',
+            },
+        }}>
+        <NewsThumbnail size={select('size', ['Medium', 'Grid', 'List'])} />
+    </Story>
+    <Story name="NewsThumbnail Grid">
+        <NewsThumbnail size="Grid" />
+    </Story>
+    <Story name="NewsThumbnail List">
+        <NewsThumbnail size="List" />
+    </Story>
+</Preview>
+
+> Figma Link <https://www.figma.com/file/gp4mh7pbvuzpfmqh0uscfu/outlook-jio-library?node-id=525%3a284>

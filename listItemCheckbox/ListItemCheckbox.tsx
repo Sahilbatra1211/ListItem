@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from './ListItem.module.scss';
+import styles from './ListItemCheckbox.module.scss';
 import { CheckBox } from '../checkbox/components/CheckBox';
 import { Icon } from '../icon/components/Icon';
-import { ListItemProps } from './ListItem.Props';
+import { ListItemCheckboxProps } from './ListItemCheckbox.Props';
 import { Persona } from '../Personas/components/Persona';
-import { RadioButton } from '../radioButton/components/RadioButton';
 import { userContext } from '../tabBarContext/TabBarContext';
+
 //import { Base } from '../Bases/Base';
 
-const ListItem = React.memo<ListItemProps>((props) => {
+const ListItemCheckBox = React.memo<ListItemCheckboxProps>((props) => {
     const [isActive, setIsActive] = useState(false);
     const tabBarContext = useContext(userContext);
 
-    const { fowardRef: forwardRef, onEnter } = props;
+    const { forwardRef: forwardRef, onEnter } = props;
     const itemRef = forwardRef;
 
     useEffect(() => {
@@ -57,14 +57,7 @@ const ListItem = React.memo<ListItemProps>((props) => {
         LeftContent = <></>;
     }
 
-    let RightContent;
-    if (props.rightIconName === 'radiobutton') {
-        RightContent = <RadioButton></RadioButton>;
-    } else if (props.rightIconName === 'Checkbox') {
-        RightContent = <CheckBox onChange={() => { }}></CheckBox>;
-    } else if (props.rightIconName === 'arrowbutton') {
-        RightContent = <Icon iconName="chevron"></Icon>;
-    }
+    const RightContent = <CheckBox onChange={() => { }}></CheckBox>;
 
     return (
         <div
@@ -76,8 +69,8 @@ const ListItem = React.memo<ListItemProps>((props) => {
                     : `${styles.itemListPersonaSmall}`
                 }`
                 : ''
-                }`}
-            onClick={onEnter}>
+                } ${isActive ? `${styles.active}` : ''}`}
+            onClick={() => { }}>
             <div
                 className={`${styles.leftContent} ${props.leftIcon ? `${styles.leftIcon}` : ''} ${props.leftPersona
                     ? `${props.listSize === 'Medium'
@@ -101,6 +94,6 @@ const ListItem = React.memo<ListItemProps>((props) => {
     );
 });
 
-export default React.forwardRef((props: ListItemProps, ref) => (
-    <ListItem fowardRef={ref} {...props} />
+export default React.forwardRef((props: ListItemCheckboxProps, ref) => (
+    <ListItemCheckBox forwardRef={ref} {...props} />
 ));

@@ -1,0 +1,55 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Message } from './components/Message.tsx';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+
+<Meta title="MDX/Message" component={Message} />
+
+# Message/Chat
+
+`Message/Chat` component will serve as generic chat component for kaios app.
+
+## Usage
+
+> List of props that can be passed in `Message` component are-
+
+<Props of={Message} />
+
+<Preview withToolbar>
+    <Story
+        name="MessageReceiver"
+        parameter={{
+            design: {
+                type: 'figma',
+                url:
+                    'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=397%3A18',
+            },
+        }}>
+        <Message
+            text={text('Text', 'This is my SMS message')}
+            messageDay={text('Day', 'Today')}
+            messageTime={text('Time', '10:47 AM')}
+            isSender={boolean('Sender', false)}
+            isSelected={boolean('Select', false)}
+        />
+    </Story>
+    <Story name="MessageSender">
+        <Message
+            text="This is my SMS message"
+            messageDay="Today"
+            messageTime="10:47 AM"
+            isSender={true}
+            isSelected={false}
+        />
+    </Story>
+    <Story name="MessageFocused">
+        <Message
+            text="This is my SMS message"
+            messageDay="Today"
+            messageTime="10:47 AM"
+            isSender={true}
+            isSelected={true}
+        />
+    </Story>
+</Preview>
+
+> Figma Link <https://www.figma.com/file/gp4mh7pbvuzpfmqh0uscfu/outlook-jio-library?node-id=525%3a284>

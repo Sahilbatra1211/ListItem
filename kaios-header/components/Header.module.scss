@@ -1,0 +1,53 @@
+@import '../../globals/variables.scss';
+@import '../../globals/tempVariable.scss';
+
+.header {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    width: $header_width;
+    border-bottom: 1px solid;
+    border-color: $Neutrals_Mobile_Gray_200_C8C8C8;
+    color: $Neutrals_Mobile_Black_000000;
+    //text-align: center;
+    //float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal {
+    height: $header_height;
+}
+
+.large {
+    height: 42px;
+}
+
+.white {
+    background: $Neutrals_White_FFFFFF;
+}
+
+.grey {
+    background: $Neutrals_Mobile_Gray_50_F1F1F1;
+}
+
+.dark {
+    background: $Neutrals_Mobile_Gray_700_303030;
+    color: $Neutrals_White_FFFFFF;
+}
+
+.headerText {
+    left: 35%;
+    right: 35%;
+    top: 3.33%;
+    bottom: 10%;
+    font-family: $font_family;
+    font-style: normal;
+    font-weight: nth($font_weights, 2);
+    font-size: nth($font_size, 2);
+    line-height: $header_line_height;
+}

@@ -1,0 +1,52 @@
+@import './MessageSender.module.scss';
+@import './MessageReceiver.module.scss';
+@import '../../globals/tempVariable.scss';
+@import '../../globals/variables.scss';
+
+.message {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: $top_spacing;
+    border-radius: $border_radius;
+    width: max-content;
+    max-width: 80%;
+    padding: $message_padding;
+}
+
+.messageSelected {
+    border: 2px solid;
+    border-color: $Communication_Blue_Comm_Primary_0078D4;
+}
+
+.messageText {
+    position: relative;
+    font-family: $font_family;
+    font-style: normal;
+    font-weight: nth($font_weights, 1);
+    font-size: nth($font_size, 2);
+    line-height: $message_text_line_height;
+    color: $Neutrals_Mobile_Black_000000;
+    flex: none;
+    order: 1;
+    margin: 0px 0px;
+}
+
+.messageTime {
+    font-family: $font_family;
+    font-style: normal;
+    font-weight: nth($font_weights, 1);
+    font-size: nth($font_size, 1);
+    line-height: $message_time_line_height;
+    color: $Neutrals_Mobile_Gray_500_6E6E6E;
+    margin: 0px 0px;
+    display: flex;
+}
+
+.dayTimeSeparator {
+    height: $separator_height;
+    width: $separator_width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

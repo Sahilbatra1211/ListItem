@@ -1,22 +1,49 @@
 @import '../../globals/variables.scss';
 @import '../../globals/tempVariable.scss';
 
-.checkBox{
-  input[type="checkbox"] {
+@mixin inputStyle($border-color){
     cursor: pointer;
-
     appearance: none;
     outline: 0;
-    border: nth($border_width,1)  solid $Neutrals_Mobile_Black_000000;
-    height:$radioButton_height;
-    width:$radioButton_width;
+    border: nth($border-width,1)  solid  $border-color;
+    height:$radio-btn-height;
+    width:$radio-btn-width;
     box-sizing: border-box;
     border-radius: 50%;
+}
+
+@mixin inputStyleChecked($border-color,$bg-color){
+  background: $bg-color;
+  border: nth($border-width,1)  solid $border-color;
+}
+
+@mixin inputStyleAfter($border-color){
+  content: '';
+  position: relative;
+  left: 40%;
+  top: 20%;
+  width: 15%;
+  height: 40%;
+  border: solid $border-color;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+@mixin inputDisabled{
+    background: $radio-btn-disable;
+    border: nth($border-width,1)  solid $Neutrals_Mobile_Black_000000;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.checkboxBlue{
+  input[type="checkbox"] {
+    @include inputStyle($Neutrals_Mobile_Black_000000);
   }
 
   input[type="checkbox"]:checked {
-    background: $Communication_Blue_Comm_Primary_0078D4;
-    border: nth($border_width,1)  solid $Communication_Blue_Comm_Primary_0078D4;
+   @include inputStyleChecked($Communication_Blue_Comm_Primary_0078D4,$Communication_Blue_Comm_Primary_0078D4);
   }
 
   input[type="checkbox"]:hover {
@@ -24,23 +51,11 @@
   }
 
    input[type="checkbox"]:disabled {
-    background: $radioButton_disable;
-    border: nth($border_width,1)  solid $Neutrals_Mobile_Black_000000;
-    opacity: 0.6;
-    pointer-events: none;
+      @include inputDisabled;
   }
 
    input[type="checkbox"]:after {
-    content: '';
-    position: relative;
-    left: 40%;
-    top: 20%;
-    width: 15%;
-    height: 40%;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    display: none;
+    @include inputStyleAfter($Neutrals_White_FFFFFF);
   }
 
    input[type="checkbox"]:checked:after {
@@ -48,6 +63,37 @@
   }
 
   input[type="checkbox"]:disabled:after {
-    border-color:$radioButton_disableTick;
+    border-color:$radio-btn-disable-tick;
+  }
+}
+
+// white color
+.checkboxWhite{
+  input[type="checkbox"] {
+    @include inputStyle($Neutrals_White_FFFFFF);
+  }
+
+  input[type="checkbox"]:checked {
+    @include inputStyleChecked($Neutrals_White_FFFFFF,$Neutrals_White_FFFFFF);
+  }
+
+  input[type="checkbox"]:hover {
+    filter: brightness(90%);
+  }
+
+   input[type="checkbox"]:disabled {
+    @include inputDisabled;
+  }
+
+   input[type="checkbox"]:after {
+    @include inputStyleAfter($Communication_Blue_Comm_Primary_0078D4);
+  }
+
+   input[type="checkbox"]:checked:after {
+    display: block;
+  }
+
+  input[type="checkbox"]:disabled:after {
+    border-color:$radio-btn-disable-tick;
   }
 }
