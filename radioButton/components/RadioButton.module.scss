@@ -1,51 +1,86 @@
 @import '../../globals/variables.scss';
 @import '../../globals/tempVariable.scss';
 
-.radioButton{
+
+@mixin radioButtonStyle($border-color) {
   display:inline-block;
-  border: nth($border_width,1)  solid $Neutrals_Mobile_Black_000000;
-    height:$radioButton_height;
-    width:$radioButton_width;
+    border: nth($border-width,1)  solid $border-color;
+    height:$radio-btn-height;
+    width:$radio-btn-width;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     border-radius: 50%;
-    position:relative;;
+    position:relative;
+}
 
-  input[type="radio"] {
-    cursor: pointer;
+@mixin radioInput{
+  cursor: pointer;
     appearance: none;
     outline: 0;
-
-
-   // border: nth($border_width,1)  solid $Neutrals_Mobile_Black_000000;
-    height:$radioButton_height;
-    width:$radioButton_width;
+    height:$radio-btn-height;
+    width:$radio-btn-width;
     box-sizing: border-box;
     border-radius: 50%;
+}
+
+@mixin radioChecked($bgColor) {
+  position: absolute;
+  background:$bgColor;
+  border: nth($border-width,1)  solid $bgColor;
+  height:$radio-btn-inner-height;
+  width:$radio-btn-inner-width;
+  right:-1.6px;
+  top:-1.6px;
+}
+
+@mixin radioDisabled{
+    background: $radio-btn-disable;
+    border: nth($border-width,1)  solid $radio-btn-disable-tick;
+    position:absolute;
+    right:-4.5px;
+    top:-4.5px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.radioButtonBlue{
+    @include radioButtonStyle($Neutrals_Mobile_Black_000000);
+
+  input[type="radio"] {
+    @include radioInput;
   }
 
   input[type="radio"]:checked {
-    position: absolute;
-    background: $Communication_Blue_Comm_Primary_0078D4;
-    border: nth($border_width,1)  solid $Communication_Blue_Comm_Primary_0078D4;
-    height:$radioButtonInner_height;
-    width:$radioButtonInner_width;
-    right:-1.6px;
-    top:-1.6px;
-}
+    @include radioChecked($Communication_Blue_Comm_Primary_0078D4);
+  }
 
   input[type="radio"]:hover {
     filter: brightness(90%);
   }
 
    input[type="radio"]:disabled {
-    background: $radioButton_disable;
-    border: nth($border_width,1)  solid $radioButton_disableTick;
-    position:absolute;
-    right:-4.5px;
-    top:-4.5px;
-    opacity: 0.6;
-    pointer-events: none;
+    @include radioDisabled;
   }
+}
+
+
+.radioButtonWhite{
+  @include radioButtonStyle($Neutrals_White_FFFFFF);
+
+input[type="radio"] {
+  @include radioInput;
+}
+
+input[type="radio"]:checked {
+  @include radioChecked($Neutrals_White_FFFFFF);
+}
+
+input[type="radio"]:hover {
+  filter: brightness(90%);
+}
+
+ input[type="radio"]:disabled {
+  @include radioDisabled;
+}
 }

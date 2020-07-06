@@ -3,15 +3,17 @@ import { RadioButtonProps } from '../schema/RadioButton.Props';
 import styles from './RadioButton.module.scss';
 
 export const RadioButton: React.FC<RadioButtonProps> = (props: RadioButtonProps) => {
-    let { name, disabled, checked, onChange, value } = props;
-    const border = checked ? '1.5px solid #0078D4' : '';
+    let { name, disabled, checked, onChange, value, color } = props;
+
+    const border = checked ? `1.5px solid ${color}` : '';
+    const colorCls = color === 'white' ? styles.radioButtonWhite : styles.radioButtonBlue;
 
     const check = () => {
-        if (checked == true && disabled == true) checked = false;
+        if (checked === true && disabled === true) checked = false;
     };
 
     return (
-        <div className={styles.radioButton} style={{ border: border }}>
+        <div className={colorCls} style={{ border: border }}>
             {check()}
             <input
                 type="radio"
@@ -29,4 +31,5 @@ RadioButton.defaultProps = {
     disabled: false,
     checked: false,
     onChange: () => {},
+    color: '#0078D4',
 };

@@ -1,6 +1,6 @@
 import { Meta, Story, Preview,Props} from "@storybook/addon-docs/blocks";
 import {RadioButton} from './RadioButton'
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, number,select } from "@storybook/addon-knobs";
 import { action } from '@storybook/addon-actions';
 
 
@@ -21,16 +21,24 @@ Radio button has three states:
 3. Disabled
 
 <Preview>
-    <Story name="Radio Button Unchecked">
-       <RadioButton name="check1" value="1"  checked={boolean('checked',false)} disabled={boolean('disabled',false)} onChange={action('onchange called')} />Unchecked
-        Unchecked
-    </Story>
-    <Story name="Radio Button Checked">
+    <Story name="Radio Button Unchecked" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=255%3A89'
+            }
+        }}>
+       <RadioButton name="check1" value="1"  checked={boolean('checked',false)} disabled={boolean('disabled',false)}
+        onChange={action('onchange called')} color={select('color',['blue','white'])}/>
+    </Story >
+    <Story name="Radio Button Checked" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=255%3A82'
+            }
+        }}>
        <RadioButton name="check1" value="1"  checked={true} disabled={false} onChange={action('onchange called')} />
-       Checked
     </Story>
     <Story name="Radio Button Disabled">
        <RadioButton name="check1" value="1"  checked={false} disabled={true} onChange={action('onchange called')} />
-       disabled
     </Story>
 </Preview>
