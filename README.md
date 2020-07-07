@@ -1,0 +1,1 @@
+This is home of our app, news is kept as placeholder
