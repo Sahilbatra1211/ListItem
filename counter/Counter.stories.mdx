@@ -1,0 +1,31 @@
+import { Meta, Story, Preview,Props } from "@storybook/addon-docs/blocks";
+import {Counter} from './Counter'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+
+<Meta title="Component Lib| Counter" component={Counter} />
+
+# Counter
+`Counter` will serve as generic counter for kaios app.
+
+## Usage
+
+<Props of={Counter}/>
+
+Counter can be passed with various colors:
+
+<Preview>
+    <Story name="Counter" parameters={{
+            design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/gP4MH7PBvUzPFMqh0uSCfU/Outlook-Jio-Library?node-id=255%3A52'
+            }
+        }}>
+        <Counter count={text('Number','1')} color={text('color','#0078D4')}/>
+    </Story>
+    <Story name="Counter black" >
+        <Counter count={2} color='black'/>
+    </Story>
+    <Story name="Counter grey">
+        <Counter count={2} color='grey'/>
+    </Story>
+</Preview>

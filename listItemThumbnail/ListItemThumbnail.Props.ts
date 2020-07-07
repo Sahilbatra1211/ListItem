@@ -1,5 +1,5 @@
 export interface ListItemThumbnailProps {
-    /** foward ref to list view */
+    /** forward ref to list view */
     fowardRef?: any;
     thumbnailSize?: 'Medium' | 'Grid' | 'List';
     newsTopic?: string;

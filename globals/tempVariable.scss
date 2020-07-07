@@ -1,0 +1,33 @@
+$border-width:(1.5px,1px);
+/** radio button and checkbox variables*/
+$radio-btn-width:16px;
+$radio-btn-height:16px;
+$radio-btn-inner-width:10px;
+$radio-btn-inner-height:10px;
+
+/**tabBar variables*/
+$tabBar-height:30px;
+$tabBar-font-size:14px;
+$tabBar-line-height:19px;
+$tabBar-font-size-large:18px;
+
+
+/*counter variables*/
+$counter-width:20px;
+$counter-height:20px;
+$counter-border-radius:3px;
+$counter-inner-width:8px;
+$counter-inner-height:18px;
+$counter-font-size:13px;
+
+$notification_border:#F2F2F2;
+$radio-btn-disable:#e6e6e6;
+$radio-btn-disable-tick:#7b7b7b;
+
+$font_family:'Noto Sans';
+$font_style:normal;
+$font_weight:500;
+
+:export {
+    tabBar-font-size-large:$tabBar-font-size-large;
+}

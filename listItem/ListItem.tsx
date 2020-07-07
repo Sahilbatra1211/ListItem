@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useContext } from 'react';
+=======
+import React, { useContext, useEffect, useState } from 'react';
+>>>>>>> a489a779c6e721a4e9302e9ea7e0e6d285adafe5
 import styles from './ListItem.module.scss';
 import { Checkbox } from '../checkbox/components/Checkbox';
 import { Icon } from '../icon/components/Icon';
 import { ListItemProps } from './ListItem.Props';
 import { Persona } from '../Personas/components/Persona';
 import { RadioButton } from '../radioButton/components/RadioButton';
+<<<<<<< HEAD
 import { userContext } from '../tabBarContext/TabBarContext'
+=======
+import { userContext } from '../tabBarContext/TabBarContext';
+>>>>>>> a489a779c6e721a4e9302e9ea7e0e6d285adafe5
 //import { Base } from '../Bases/Base';
 
 const ListItem = React.memo<ListItemProps>((props) => {
@@ -61,7 +69,11 @@ const ListItem = React.memo<ListItemProps>((props) => {
     if (props.rightIconName === 'radiobutton') {
         RightContent = <RadioButton></RadioButton>;
     } else if (props.rightIconName === 'Checkbox') {
+<<<<<<< HEAD
         RightContent = <Checkbox onChange={() => { }}></Checkbox>;
+=======
+        RightContent = <CheckBox onChange={() => { }}></CheckBox>;
+>>>>>>> a489a779c6e721a4e9302e9ea7e0e6d285adafe5
     } else if (props.rightIconName === 'arrowbutton') {
         RightContent = <Icon iconName="chevron"></Icon>;
     }
@@ -70,6 +82,7 @@ const ListItem = React.memo<ListItemProps>((props) => {
         <div
             tabIndex={0}
             ref={itemRef}
+<<<<<<< HEAD
             className={`${styles.itemList} ${props.leftIcon ? `${styles.itemListIcon}` : ''} ${
                 props.leftPersona
                     ? `${
@@ -89,13 +102,34 @@ const ListItem = React.memo<ListItemProps>((props) => {
                             : `${styles.leftPersonaSmall}`
                         }`
                         : ''
+=======
+            className={`${styles.itemList} ${props.leftIcon ? `${styles.itemListIcon}` : ''} ${props.leftPersona
+                ? `${props.listSize === 'Medium'
+                    ? `${styles.itemListPersonsMedium}`
+                    : `${styles.itemListPersonaSmall}`
+                }`
+                : ''
+                }`}
+            onClick={onEnter}>
+            <div
+                className={`${styles.leftContent} ${props.leftIcon ? `${styles.leftIcon}` : ''} ${props.leftPersona
+                    ? `${props.listSize === 'Medium'
+                        ? `${styles.leftPersonsMedium}`
+                        : `${styles.leftPersonaSmall}`
+                    }`
+                    : ''
+>>>>>>> a489a779c6e721a4e9302e9ea7e0e6d285adafe5
                     }`}>
                 {LeftContent}
             </div>
             <div className={styles.textContainer}>
                 <div
+<<<<<<< HEAD
                     className={`${
                         props.leftIcon ? `${styles.iconPrimaryText}` : `${styles.primaryText}`
+=======
+                    className={`${props.leftIcon ? `${styles.iconPrimaryText}` : `${styles.primaryText}`
+>>>>>>> a489a779c6e721a4e9302e9ea7e0e6d285adafe5
                         }`}>
                     {props.primaryText}
                 </div>

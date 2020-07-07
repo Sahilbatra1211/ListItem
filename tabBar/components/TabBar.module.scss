@@ -1,0 +1,30 @@
+@import '../../globals/variables.scss';
+@import '../../globals/tempVariable.scss';
+
+.kaiSoftkey {
+
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    text-align: center;
+    background-color:$Neutrals_Mobile_Gray_50_F1F1F1;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height:$tabBar-height;
+    border-top:nth($border_width,2) solid $Neutrals_Mobile_Gray_200_C8C8C8;
+
+    &Btn {
+      display: block;
+      height: $tabBar-height;
+      font-family: $font-family;
+      font-style: $font-style;
+      font-weight: $font-weight;
+      font-size: $tabBar-font-size;
+      line-height: $tabBar-line-height;
+      border: unset;
+      overflow: hidden;
+      color:$Neutrals_Mobile_Black_000000;
+    }
+  }
